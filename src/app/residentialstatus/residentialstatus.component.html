@@ -1,0 +1,83 @@
+<h1>Residential Status Calculator</h1>
+<h3>Do you qualify as an NRI, a RNOR or an Ordinary Indian Resident?</h3>
+<div fxLayoutAlign="center center" fxFlexFill class="main-div alternative">
+    <mat-card>
+        
+        <ng-template [ngIf]="isShow">
+            <h2>How many days were you in India, this Financial Year?</h2>
+            <!-- <p>Financial Year 2020-21 is from 1st April 2020 to 31st March 2021</p> -->
+            <mat-radio-group aria-label="Select an option"  [(ngModel)]="status" (change)="onToggle(status)" >
+            <mat-radio-button value="1" >Less than 60 days</mat-radio-button><br><br>
+            <mat-radio-button value="2" >60-182 days</mat-radio-button><br><br>
+            <mat-radio-button value="3" >More than 182 days</mat-radio-button><br><br>
+            </mat-radio-group>
+        </ng-template>
+        
+        <ng-template [ngIf]="showMe1">
+            <h2>Please select one of the following:</h2>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="status" (change)="onToggle(status)">
+            <mat-radio-button value="4">Person of Indian origin</mat-radio-button><br><br>
+            <mat-radio-button value="5">Indian Citizen</mat-radio-button><br><br>
+            <mat-radio-button value="6">Citizen of foreign country</mat-radio-button><br><br>
+            <mat-radio-button value="7">Member of crew on an Indian Ship</mat-radio-button><br><br>
+          </mat-radio-group>
+        </ng-template>
+    
+         <ng-template [ngIf]="showMe2">
+            <h2>Are you on a visit to India?</h2>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="status" (change)="onToggle(status)">
+            <mat-radio-button value="8">Yes, I came to visit India</mat-radio-button><br><br>
+            <mat-radio-button value="9">No, I am here for my job</mat-radio-button><br><br>
+          </mat-radio-group>
+         </ng-template>
+    
+         <ng-template [ngIf]="showMe3">
+            <h2>Did you spend atleast 365 days in India, in last 4 years?</h2>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="status" (change)="onToggle(status)">
+            <mat-radio-button value="10">Yes</mat-radio-button><br><br>
+            <mat-radio-button value="11">No</mat-radio-button><br><br>
+          </mat-radio-group>
+         </ng-template>
+        
+         <ng-template [ngIf]="showMe4">
+            <h2>Have you been a resident of India in the past 2 out of 10 preceding years?</h2>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="status" (change)="onToggle(status)">
+            <mat-radio-button value="12">No</mat-radio-button><br><br>
+            <mat-radio-button value="13">Yes</mat-radio-button><br><br>
+          </mat-radio-group>
+         </ng-template>
+    
+         <ng-template [ngIf]="showMe6">
+            <h2>How long have you been in India for last 7 years?</h2>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="status" (change)="onToggle(status)">
+            <mat-radio-button value="14">Less than 729 days</mat-radio-button><br><br>
+            <mat-radio-button value="15">More than 729 days</mat-radio-button><br><br>
+          </mat-radio-group>
+         </ng-template>
+    
+         <ng-template [ngIf]="showMe8">
+            <h2>Did you go abroad on employment?</h2>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="status" (change)="onToggle(status)">
+            <mat-radio-button value="16">You</mat-radio-button><br><br>
+            <mat-radio-button value="17">No</mat-radio-button><br><br>
+          </mat-radio-group>
+         </ng-template>
+    
+        <ng-template [ngIf]="showMe">
+            <h1>You are an NRI</h1>
+        </ng-template>
+    
+        <ng-template [ngIf]="showMe7">
+            <h1>You are an Ordinary Indian Resident</h1>
+        </ng-template>
+    
+        <ng-template [ngIf]="showMe5">
+            <h1>You are a Resident but not Ordinary Resident(RNOR)</h1>
+        </ng-template>
+
+          <div class="example-button-row"> <br>         
+              <button mat-raised-button color="primary" (click)="onClick()">Check Again</button>
+          </div>
+
+    </mat-card>
+</div>
